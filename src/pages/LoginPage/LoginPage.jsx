@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import css from "./LoginPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { apiLogin } from "../../redux/auth/operation";
-import { selectAuthUser, selectError } from "../../redux/auth/selectors";
+import { selectError } from "../../redux/auth/selectors";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,6 @@ const LoginPage = () => {
   };
 
   const handleSubmit = (values) => {
-    console.log(values);
     dispatch(apiLogin(values));
   };
 
@@ -65,7 +64,7 @@ const LoginPage = () => {
           <button type="submit" className={css.submitButton}>
             Зарегистрироваться
           </button>
-                  {error && <p>{error }</p>}
+          {error && <p>{error}</p>}
         </Form>
       </Formik>
     </div>

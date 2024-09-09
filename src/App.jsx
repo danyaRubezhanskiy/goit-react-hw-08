@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import css from "./App.module.css";
+import RestrictedRoute from "./components/RestrictedRoute";
+import PrivateRoute from "./components/PrivatRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -36,7 +38,10 @@ function App() {
               path="/register"
               element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <RegistrationPage />
+                  <RestrictedRoute
+                    component={<RegistrationPage />}
+                    redirectTo="/contacts"
+                  />
                 </Suspense>
               }
             />
@@ -44,15 +49,22 @@ function App() {
               path="/login"
               element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <LoginPage />
+                  <RestrictedRoute
+                    component={<LoginPage />}
+                    redirectTo="/contacts"
+                  />
                 </Suspense>
               }
             />
+
             <Route
               path="/contacts"
               element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <ContactsPage />
+                  <PrivateRoute
+                    component={<ContactsPage />}
+                    redirectTo="/login"
+                  />
                 </Suspense>
               }
             />

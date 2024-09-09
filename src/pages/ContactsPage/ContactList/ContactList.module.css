@@ -1,0 +1,10 @@
+ul {
+  list-style: none;
+}
+
+.contactsList {
+  margin-top: 30px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,22 @@
+.contactContainer {
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  height: 100px;
+  width: 500px;
+}
+
+.deleteBtn {
+  width: 90px;
+  height: 60px;
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.contactInformation {
+  font-size: 25px;
+  margin-top: 5px;
+}
