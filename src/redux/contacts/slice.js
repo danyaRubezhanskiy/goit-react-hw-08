@@ -3,7 +3,7 @@ import {
   apiAddContact,
   apiDeleteContact,
   apiGetAllContacts,
-} from "./operation";
+} from "./operations";
 import { useSelector } from "react-redux";
 import { selectNameFilter } from "../filters/slice";
 

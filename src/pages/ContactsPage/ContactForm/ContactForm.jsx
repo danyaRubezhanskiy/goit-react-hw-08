@@ -3,7 +3,7 @@ import css from "./ContacForm.module.css";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { apiAddContact } from "../../../redux/contacts/operation";
+import { apiAddContact } from "../../../redux/contacts/operations";
 import { selectIsLoggedIn } from "../../../redux/auth/selectors";
 
 const ContactForm = () => {
