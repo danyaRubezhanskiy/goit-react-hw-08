@@ -19,7 +19,6 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log(isLoggedIn);
     dispatch(apiAddContact(values));
     actions.resetForm();
   };

@@ -1,8 +1,11 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import css from "./App.module.css";
 import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivatRoute";
+import { useDispatch, useSelector } from "react-redux";
+import { apiRefreshUser } from "./redux/auth/operation";
+import { selectIsRefreshing } from "./redux/auth/selectors";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -14,6 +17,15 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const Layout = lazy(() => import("./components/Layout/Layout"));
 
 function App() {
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(apiRefreshUser());
+  }, [dispatch]);
+
+  if (isRefreshing) return <p>Pleas,wait</p>;
+
   return (
     <div className={css.window}>
       <main>
