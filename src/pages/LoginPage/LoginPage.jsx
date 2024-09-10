@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./LoginPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { apiLogin } from "../../redux/auth/operation";
+import { apiLogin } from "../../redux/auth/operations";
 import { selectError } from "../../redux/auth/selectors";
 
 const LoginPage = () => {

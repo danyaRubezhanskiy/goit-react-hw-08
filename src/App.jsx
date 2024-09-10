@@ -4,7 +4,7 @@ import css from "./App.module.css";
 import RestrictedRoute from "./components/RestrictedRoute";
 import PrivateRoute from "./components/PrivatRoute";
 import { useDispatch, useSelector } from "react-redux";
-import { apiRefreshUser } from "./redux/auth/operation";
+import { apiRefreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
