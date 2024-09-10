@@ -9,9 +9,9 @@ import { selectIsRefreshing } from "./redux/auth/selectors";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
-  import("./pages/RegistrationPage/RegistrationPage")
+  import("./pages/RegistrationPage/RegistrationForm")
 );
-const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginForm"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 const Layout = lazy(() => import("./components/Layout/Layout"));

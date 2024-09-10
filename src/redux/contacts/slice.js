@@ -6,6 +6,7 @@ import {
 } from "./operations";
 import { useSelector } from "react-redux";
 import { selectNameFilter } from "../filters/slice";
+import { apiLogout } from "../auth/operations";
 
 const initialContacts = [];
 
@@ -54,6 +55,19 @@ const contactsSlice = createSlice({
         );
       })
       .addCase(apiDeleteContact.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(apiLogout.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(apiLogout.fulfilled, (state) => {
+        state.loading = false;
+        state.items = [];
+        state.error = null;
+      })
+      .addCase(apiLogout.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
